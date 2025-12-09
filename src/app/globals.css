@@ -1,26 +1,38 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Primary Colors derived from your uploads */
+  --color-studio-cyan: #00A9BD; /* The main brand cyan */
+  --color-studio-teal: #46B6A0; /* The secondary teal */
+  --color-studio-navy: #1C3661; /* The deep blue accent */
+  
+  /* Background Colors (Deep Space) */
+  --color-studio-black: #001113; /* Darkest shade from palette */
+  --color-studio-void: #03050A;  /* Slightly lighter black for gradients */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Fonts */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Custom Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.8; box-shadow: 0 0 20px -5px var(--color-studio-cyan); }
+    50% { opacity: 1; box-shadow: 0 0 30px 5px var(--color-studio-cyan); }
+  }
+  
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-glow: glow-pulse 3s infinite;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-studio-black);
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.text-gradient-cyan {
+  @apply bg-clip-text text-transparent bg-linear-to-r from-studio-cyan to-studio-teal;
 }
