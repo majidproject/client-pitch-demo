@@ -8,10 +8,6 @@ const nextConfig: NextConfig = {
   },
 
   basePath: "/client-pitch-demo",
-  
-  assetPrefix: "/client-pitch-demo/",
-  
-  trailingSlash: true,
 };
 
 export default nextConfig;
