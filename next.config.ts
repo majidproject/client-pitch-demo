@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+const repo = "client-pitch-demo";
+
 const nextConfig: NextConfig = {
   output: "export",
   
@@ -7,7 +9,11 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
 
-  basePath: "/client-pitch-demo",
+  basePath: `/${repo}`,
+  
+  assetPrefix: `/${repo}/`,
+  
+  trailingSlash: true,
 };
 
 export default nextConfig;
